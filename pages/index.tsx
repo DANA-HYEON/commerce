@@ -7,6 +7,12 @@ import Button from '@/components/Button'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+  const handleClick = () => {
+    fetch(`/api/add-item?name=Jacket`)
+      .then((res) => res.json())
+      .then((data) => alert(data.message))
+  }
+
   return (
     <>
       <Head>
@@ -21,6 +27,7 @@ export default function Home() {
             Get started by editing&nbsp;
             <code className={styles.code}>pages/index.tsx</code>
           </p>
+          <button onClick={handleClick}>Add Jacket</button>
           <div>
             <a
               href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
